@@ -1,9 +1,11 @@
 (function() {
   /* ══════════════════════════════════════════════════════════════
-     about-combined.js — About page (mirrors fs-combined.js / fm-combined.js architecture)
-     Injects CSS, builds nav, body sections, and footer via innerHTML.
+     about-combined.js v1.0.5 — About page (body content only).
+     Webflow's native V2 Nav Light + Footer V2 are preserved so this page
+     inherits sitewide nav/footer styling automatically. We only inject the
+     hero/founders/traction/leadership/board/press/partners/CTA between them.
      Source HTML: tparis7/About-Page-Redesign/About/About/index.html
-     Image assets resolve to: https://tparis7.github.io/About-Page-Redesign/...
+     Image assets resolve to: https://tparis7.github.io/About-Page-Redesign/About-Page-Assets/
      ══════════════════════════════════════════════════════════════ */
 
   // Guard against double execution (site-level + page-level script loading)
@@ -27,8 +29,6 @@
   var GH = 'https://tparis7.githubusercontent.com'; // not used directly
   var ASSETS = 'https://tparis7.github.io/About-Page-Redesign/About-Page-Assets/';
   // Webflow-hosted brand assets (re-used across all P3 pages)
-  var WF_NAV_LOGO = 'https://cdn.prod.website-files.com/69b02f65f0068e9fb16f09f7/69b02f65f0068e9fb16f0df1_P3%20Logo.svg';
-  var WF_FOOTER_LOGO = 'https://cdn.prod.website-files.com/69b02f65f0068e9fb16f09f7/69b04a49d86c8d9ea145304a_p3-logo-horizontal.png';
 
   // ═══ 2. INJECT GLOBAL FONTS ═══
   if (!document.querySelector('link[data-ab-fonts]')) {
@@ -65,30 +65,7 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
 #ab-root p  { font-size: 16px; line-height: 1.7; }
 #ab-root html { scroll-behavior: smooth; }
 
-/* ─── NAV (matches live homepage .p3-nav) ─── */
-#ab-root .p3-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: transparent; padding: 16px 40px; height: auto; display: flex; align-items: center; justify-content: space-between; opacity: 0; transition: opacity 0.6s ease 0.05s, background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s; }
-body.ab-intro-done #ab-root .p3-nav { opacity: 1; }
-#ab-root .p3-nav.scrolled { background: rgba(26,26,26,0.95); backdrop-filter: blur(20px); box-shadow: 0 2px 20px rgba(0,0,0,0.15); }
-#ab-root .p3-nav-logo { display: flex; align-items: center; line-height: 0; text-decoration: none; z-index: 10; }
-#ab-root .p3-nav-logo img { height: 36px; max-height: 36px; width: auto; display: block; object-fit: contain; box-shadow: none; background: transparent; }
-#ab-root .p3-nav-links { display: flex; align-items: center; gap: 32px; margin-left: auto; }
-#ab-root .p3-nav-link { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.2s; line-height: 1; }
-#ab-root .p3-nav-link:hover { color: #fff; }
-#ab-root .p3-nav-link.active { color: var(--ab-crimson); }
-#ab-root .p3-nav-cta { background: #D93A3A; color: #fff !important; padding: 10px 24px; border-radius: 50px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; text-decoration: none; transition: background 0.2s, transform 0.2s; margin-left: 32px; line-height: 1; display: inline-block; }
-#ab-root .p3-nav-cta:hover { background: #b52f2f; transform: translateY(-1px); }
-#ab-root .pp-mob-menu { display: none; cursor: pointer; padding: 8px; z-index: 1001; flex-direction: column; gap: 5px; background: none; border: none; margin-left: auto; }
-#ab-root .pp-mob-menu span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s ease; }
-#ab-root .pp-mob-menu.open span:nth-child(1) { transform: rotate(45deg) translate(4px, 6px); }
-#ab-root .pp-mob-menu.open span:nth-child(2) { opacity: 0; }
-#ab-root .pp-mob-menu.open span:nth-child(3) { transform: rotate(-45deg) translate(4px, -6px); }
-#ab-root .pp-home-desktop-hide { display: none; }
-#ab-root .pp-mob-overlay { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(26,26,26,0.98); flex-direction: column; align-items: center; justify-content: center; gap: 24px; }
-#ab-root .pp-mob-overlay.open { display: flex; }
-#ab-root .pp-mob-overlay-link { color: #fff; font-size: 1.4rem; font-weight: 600; opacity: 0.8; transition: opacity 0.3s; font-family: 'Space Grotesk', sans-serif; }
-#ab-root .pp-mob-overlay-link:hover { opacity: 1; }
-#ab-root .pp-mob-overlay-cta { display: inline-flex; padding: 12px 28px; border-radius: 100px; background: var(--ab-crimson); color: #fff; font-weight: 600; font-size: 1rem; margin-top: 12px; transition: opacity 0.3s; }
-#ab-root .pp-mob-overlay-cta:hover { opacity: 0.9; }
+/* NAV + FOOTER intentionally omitted — Webflow's native V2 Nav Light + Footer V2 components render directly. */
 
 /* ─── Shared section helpers ─── */
 #ab-root .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
@@ -213,17 +190,6 @@ body.ab-intro-done #ab-root .p3-nav { opacity: 1; }
 #ab-root .cta-btn-outline { display: inline-flex; align-items: center; gap: 8px; padding: 16px 36px; border-radius: 100px; border: 2px solid rgba(255,255,255,0.3); color: #fff; font-weight: 600; font-size: 16px; transition: border-color var(--ab-transition), transform var(--ab-transition); }
 #ab-root .cta-btn-outline:hover { border-color: #fff; transform: translateY(-2px); }
 
-/* ─── FOOTER (matches live homepage .p3-footer) ─── */
-#ab-root .p3-footer { background: #0a0a0a; color: rgba(255,255,255,0.7); padding: 64px 40px 32px; }
-#ab-root .p3-footer-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 56px; }
-#ab-root .p3-footer-brand .p3-footer-logo { height: 36px; width: auto; margin-bottom: 20px; filter: brightness(0) invert(1); }
-#ab-root .p3-footer-brand p { font-size: 14px; line-height: 1.7; max-width: 340px; color: rgba(255,255,255,0.6); }
-#ab-root .p3-footer-col h4 { color: #fff; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; font-family: 'Inter', sans-serif; }
-#ab-root .p3-footer-col a { display: block; font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 10px; transition: color var(--ab-transition); }
-#ab-root .p3-footer-col a:hover { color: var(--ab-crimson); }
-#ab-root .p3-footer-bottom { max-width: 1240px; margin: 56px auto 0; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 8px 20px; text-align: center; font-size: 12px; color: rgba(255,255,255,0.45); }
-#ab-root .p3-footer-bottom a { color: rgba(255,255,255,0.45); transition: color var(--ab-transition); }
-#ab-root .p3-footer-bottom a:hover { color: var(--ab-crimson); }
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 1100px) {
@@ -233,15 +199,6 @@ body.ab-intro-done #ab-root .p3-nav { opacity: 1; }
   #ab-root .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 32px; }
   #ab-root .press-big-grid { grid-template-columns: repeat(2, 1fr); }
   #ab-root .press-small-grid { grid-template-columns: repeat(3, 1fr); }
-  #ab-root .p3-footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; }
-}
-@media (max-width: 991px) {
-  #ab-root .p3-nav { padding: 14px 20px; }
-  #ab-root .p3-nav-logo img { max-height: 32px; }
-  #ab-root .p3-nav-links { display: none; }
-  #ab-root .p3-nav-cta { display: none; }
-  #ab-root .pp-mob-menu { display: flex; }
-  #ab-root .pp-home-desktop-hide { display: block; }
 }
 @media (max-width: 768px) {
   #ab-root .about-hero { padding: 110px 20px 48px; }
@@ -269,9 +226,6 @@ body.ab-intro-done #ab-root .p3-nav { opacity: 1; }
   #ab-root .partner-logos.media-logos img { height: 34px; }
   #ab-root .final-cta { padding: 48px 20px; }
   #ab-root .cta-buttons { flex-direction: column; align-items: center; }
-  #ab-root .p3-footer { padding: 48px 20px 24px; }
-  #ab-root .p3-footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-  #ab-root .p3-footer-brand { grid-column: 1 / -1; }
 }
 @media (max-width: 420px) {
   #ab-root .team-grid { grid-template-columns: 1fr; max-width: 320px; margin-left: auto; margin-right: auto; }
@@ -286,44 +240,36 @@ body.ab-intro-done #ab-root .p3-nav { opacity: 1; }
   // ═══ 4. BUILD BODY HTML ═══
   document.body.classList.add('ab-active');
 
-  // Hide all existing Webflow body content while keeping it in the DOM (in case Webflow IX2 still references nodes)
-  Array.prototype.forEach.call(document.body.children, function(child) {
-    if (child.id !== 'ab-root') {
-      child.style.setProperty('display', 'none', 'important');
+  // Locate Webflow's native nav (V2 Nav Light) and footer (Footer V2) so we can preserve them
+  // and hide ONLY the legacy About content sitting between them.
+  var nativeNav    = document.querySelector('.w-nav');
+  var nativeFooter = document.querySelector('[class*="footer" i]:not(.w-nav *)');
+  // Walk up to find the common ancestor where both nav + footer are siblings (Webflow may wrap
+  // everything in a `.page-wrapper` or place nav/sections/footer as direct body children).
+  var navAnc = nativeNav, footAnc = nativeFooter;
+  if (navAnc && footAnc) {
+    while (navAnc && footAnc && navAnc.parentNode !== footAnc.parentNode) {
+      // raise the lower one to match
+      if (navAnc.parentNode === document.body && footAnc.parentNode !== document.body) {
+        footAnc = footAnc.parentNode;
+      } else {
+        navAnc = navAnc.parentNode;
+      }
     }
-  });
+  }
+  // Hide every sibling between nav and footer
+  if (navAnc && footAnc && navAnc.parentNode === footAnc.parentNode) {
+    var n = navAnc.nextElementSibling;
+    while (n && n !== footAnc) {
+      n.style.setProperty('display', 'none', 'important');
+      n = n.nextElementSibling;
+    }
+  }
 
   var root = document.createElement('div');
   root.id = 'ab-root';
 
   root.innerHTML = `
-<!-- NAV -->
-<div class="p3-nav" id="p3nav">
-  <a href="https://www.pulseofp3.org/" class="p3-nav-logo">
-    <img src="${WF_NAV_LOGO}" alt="Pulse of Perseverance Project">
-  </a>
-  <div class="p3-nav-links">
-    <a href="https://www.pulseofp3.org/" class="p3-nav-link pp-home-desktop-hide">Home</a>
-    <a href="https://www.pulseofp3.org/for-students" class="p3-nav-link">For Students</a>
-    <a href="https://www.pulseofp3.org/partner" class="p3-nav-link">For Institutions</a>
-    <a href="https://www.pulseofp3.org/for-mentors" class="p3-nav-link">For Mentors</a>
-    <a href="https://www.pulseofp3.org/about/about" class="p3-nav-link active">About</a>
-  </div>
-  <a href="https://www.pulseofp3.org/download" class="p3-nav-cta">Get the App</a>
-  <button class="pp-mob-menu" id="ppMobMenu" aria-label="Toggle menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</div>
-
-<div class="pp-mob-overlay" id="ppMobOverlay">
-  <a class="pp-mob-overlay-link" href="https://www.pulseofp3.org/">Home</a>
-  <a class="pp-mob-overlay-link" href="https://www.pulseofp3.org/for-students">For Students</a>
-  <a class="pp-mob-overlay-link" href="https://www.pulseofp3.org/partner">For Institutions</a>
-  <a class="pp-mob-overlay-link" href="https://www.pulseofp3.org/for-mentors">For Mentors</a>
-  <a class="pp-mob-overlay-link" href="https://www.pulseofp3.org/about/about">About</a>
-  <a class="pp-mob-overlay-cta" href="https://www.pulseofp3.org/download">Get the App</a>
-</div>
-
 <!-- HERO -->
 <section class="about-hero">
   <div class="about-hero-bg"></div>
@@ -621,77 +567,18 @@ body.ab-intro-done #ab-root .p3-nav { opacity: 1; }
   </div>
 </section>
 
-<!-- FOOTER -->
-<section class="p3-footer">
-  <div class="p3-footer-grid">
-    <div class="p3-footer-brand">
-      <img src="${WF_FOOTER_LOGO}" alt="Pulse of Perseverance Project" class="p3-footer-logo">
-      <p>Unlocking life-changing opportunities for young visionaries. Free on iOS &amp; Android.</p>
-      <p style="margin-top: 10px; font-size: 12px;">Chicago, IL · Founded 2018</p>
-    </div>
-    <div class="p3-footer-col">
-      <h4>Platform</h4>
-      <a href="/for-students">For Students</a>
-      <a href="/for-mentors">For Mentors</a>
-      <a href="/partner">For Institutions</a>
-      <a href="/scholarships">Scholarships</a>
-    </div>
-    <div class="p3-footer-col">
-      <h4>About</h4>
-      <a href="/about/about">Our Story</a>
-      <a href="/about/in-the-press">Press</a>
-      <a href="/about/events">Events</a>
-      <a href="/about/contact">Contact</a>
-    </div>
-    <div class="p3-footer-col">
-      <h4>Connect</h4>
-      <a href="https://instagram.com/pulseofp3" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://linkedin.com/company/pulseofp3" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://youtube.com/@pulseofp3" target="_blank" rel="noopener">YouTube</a>
-      <a href="/donate">Donate</a>
-    </div>
-  </div>
-  <div class="p3-footer-bottom">
-    <span>© 2026 Pulse of Perseverance Project. All rights reserved.</span>
-    <span aria-hidden="true">·</span>
-    <a href="https://www.pulseofp3.org/app-terms-conditions">Terms &amp; Conditions</a>
-  </div>
-</section>
 `;
 
-  document.body.appendChild(root);
+  // Insert #ab-root BEFORE the native footer (or its ancestor sibling) so layout reads: nav → ab-root content → footer.
+  if (footAnc && footAnc.parentNode) {
+    footAnc.parentNode.insertBefore(root, footAnc);
+  } else {
+    document.body.appendChild(root);
+  }
 
   // ═══ 5. WIRE UP BEHAVIORS ═══
   // Intro reveal
   requestAnimationFrame(function() { document.body.classList.add('ab-intro-done'); });
-
-  // Nav scroll
-  var nav = document.getElementById('p3nav');
-  if (nav) {
-    window.addEventListener('scroll', function() {
-      nav.classList.toggle('scrolled', window.scrollY > 50);
-    }, { passive: true });
-  }
-
-  // Hamburger
-  var btn = document.getElementById('ppMobMenu');
-  var ov  = document.getElementById('ppMobOverlay');
-  if (btn && ov) {
-    btn.addEventListener('click', function() {
-      var open = btn.classList.toggle('open');
-      ov.classList.toggle('open', open);
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      document.body.style.overflow = open ? 'hidden' : '';
-    });
-    ov.querySelectorAll('a').forEach(function(a) {
-      a.addEventListener('click', function() {
-        btn.classList.remove('open');
-        ov.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
-    });
-  }
 
   // Scroll-reveal
   if ('IntersectionObserver' in window) {

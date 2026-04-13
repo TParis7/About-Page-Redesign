@@ -25,12 +25,7 @@
 
   // ═══ 1. ASSET BASE (GitHub Pages CDN) ═══
   var GH = 'https://tparis7.githubusercontent.com'; // not used directly
-  var IMG_BASE   = 'https://tparis7.github.io/About-Page-Redesign/About/Images/';
-  var BOARD_BASE = 'https://tparis7.github.io/About-Page-Redesign/About/Board-Members/';
-  var WEBBY_SVG  = 'https://tparis7.github.io/About-Page-Redesign/About/Webby%20Logo%20Transparent.svg';
-  var PARTNER_BASE = 'https://tparis7.github.io/About-Page-Redesign/Partner-Logos/';
-  var MEDIA_BASE   = 'https://tparis7.github.io/About-Page-Redesign/Partner-Logos/Media/';
-  var ROOT_IMG_BASE = 'https://tparis7.github.io/About-Page-Redesign/Images/';
+  var ASSETS = 'https://tparis7.github.io/About-Page-Redesign/assets/';
   // Webflow-hosted brand assets (re-used across all P3 pages)
   var WF_NAV_LOGO = 'https://cdn.prod.website-files.com/69b02f65f0068e9fb16f09f7/69b02f65f0068e9fb16f0df1_P3%20Logo.svg';
   var WF_FOOTER_LOGO = 'https://cdn.prod.website-files.com/69b02f65f0068e9fb16f09f7/69b04a49d86c8d9ea145304a_p3-logo-horizontal.png';
@@ -71,13 +66,13 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
 #ab-root html { scroll-behavior: smooth; }
 
 /* ─── NAV (matches live homepage .p3-nav) ─── */
-#ab-root .p3-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: transparent; padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; gap: 32px; opacity: 0; transition: opacity 0.6s ease 0.05s, background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s; }
+#ab-root .p3-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: transparent; padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; opacity: 0; transition: opacity 0.6s ease 0.05s, background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s; }
 body.ab-intro-done #ab-root .p3-nav { opacity: 1; }
 #ab-root .p3-nav.scrolled { background: rgba(26,26,26,0.95); backdrop-filter: blur(20px); box-shadow: 0 2px 20px rgba(0,0,0,0.15); }
-#ab-root .p3-nav-logo { display: flex; align-items: center; }
+#ab-root .p3-nav-logo { display: flex; align-items: center; line-height: 0; }
 #ab-root .p3-nav-logo img { max-height: 36px; width: auto; display: block; object-fit: contain; }
-#ab-root .p3-nav-links { display: flex; align-items: center; gap: 32px; margin-left: auto; }
-#ab-root .p3-nav-link { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.85); transition: color var(--ab-transition); font-family: 'Inter', sans-serif; }
+#ab-root .p3-nav-links { display: flex; align-items: center; gap: 40px; margin-left: auto; margin-right: 32px; }
+#ab-root .p3-nav-link { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.85); transition: color var(--ab-transition); font-family: 'Inter', sans-serif; line-height: 1; padding: 8px 0; }
 #ab-root .p3-nav-link:hover { color: #fff; }
 #ab-root .p3-nav-link.active { color: var(--ab-crimson); opacity: 1; }
 #ab-root .p3-nav-cta { background: var(--ab-crimson); color: #fff !important; padding: 12px 28px; border-radius: 100px; font-weight: 600; font-size: 14px; font-family: 'Inter', sans-serif; transition: opacity var(--ab-transition), transform var(--ab-transition); display: inline-flex; align-items: center; }
@@ -106,7 +101,7 @@ body.ab-intro-done #ab-root .p3-nav { opacity: 1; }
 
 /* ─── HERO ─── */
 #ab-root .about-hero { position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; text-align: center; background: linear-gradient(135deg, #1a0510 0%, var(--ab-maroon) 35%, #2a0a14 60%, #140510 100%); padding: 130px 32px 64px; }
-#ab-root .about-hero-bg { position: absolute; inset: 0; z-index: 0; background-image: url('${IMG_BASE}Group%20shot.avif'); background-size: cover; background-position: center; opacity: 0.12; }
+#ab-root .about-hero-bg { position: absolute; inset: 0; z-index: 0; background-image: url('${ASSETS}group-shot.avif'); background-size: cover; background-position: center; opacity: 0.12; }
 #ab-root .about-hero::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 40px; background: linear-gradient(to bottom, transparent, #fff); pointer-events: none; z-index: 1; }
 #ab-root .about-hero-inner { max-width: 800px; position: relative; z-index: 2; }
 #ab-root .about-hero h1 { color: #fff; margin-bottom: 16px; letter-spacing: -0.02em; }
@@ -350,15 +345,15 @@ body.ab-intro-done #ab-root .p3-nav { opacity: 1; }
     </div>
     <div class="founders-photos">
       <div class="founder-photo">
-        <img src="${IMG_BASE}max_casual.png" alt="Dr. Maxime Madhere">
+        <img src="${ASSETS}max_casual.png" alt="Dr. Maxime Madhere">
         <div class="caption">Dr. Maxime Madhere<span>CEO &amp; Co-Founder</span></div>
       </div>
       <div class="founder-photo">
-        <img src="${IMG_BASE}joe_casual.png" alt="Dr. Joseph Semien">
+        <img src="${ASSETS}joe_casual.png" alt="Dr. Joseph Semien">
         <div class="caption">Dr. Joseph Semien<span>Co-Founder</span></div>
       </div>
       <div class="founder-photo">
-        <img src="${IMG_BASE}pierre_casual.png" alt="Dr. Pierre Johnson">
+        <img src="${ASSETS}pierre_casual.png" alt="Dr. Pierre Johnson">
         <div class="caption">Dr. Pierre Johnson<span>Co-Founder</span></div>
       </div>
     </div>
@@ -392,7 +387,7 @@ body.ab-intro-done #ab-root .p3-nav { opacity: 1; }
     </div>
     <div class="team-grid">
       <div class="team-card">
-        <div class="team-card-photo"><img src="${IMG_BASE}Max_Exec.png" alt="Dr. Maxime Madhere"></div>
+        <div class="team-card-photo"><img src="${ASSETS}max_exec.png" alt="Dr. Maxime Madhere"></div>
         <div class="team-card-info">
           <div class="team-card-name">Dr. Maxime Madhere</div>
           <div class="team-card-role">CEO &amp; Co-Founder</div>
@@ -400,7 +395,7 @@ body.ab-intro-done #ab-root .p3-nav { opacity: 1; }
         </div>
       </div>
       <div class="team-card">
-        <div class="team-card-photo"><img src="${IMG_BASE}Thomas_Exec.png" alt="Thomas Paris"></div>
+        <div class="team-card-photo"><img src="${ASSETS}thomas_exec.png" alt="Thomas Paris"></div>
         <div class="team-card-info">
           <div class="team-card-name">Thomas Paris</div>
           <div class="team-card-role">Chief Operating Officer</div>
@@ -408,7 +403,7 @@ body.ab-intro-done #ab-root .p3-nav { opacity: 1; }
         </div>
       </div>
       <div class="team-card">
-        <div class="team-card-photo"><img src="${IMG_BASE}Alex.png" alt="Alex Strand"></div>
+        <div class="team-card-photo"><img src="${ASSETS}alex.png" alt="Alex Strand"></div>
         <div class="team-card-info">
           <div class="team-card-name">Alex Strand</div>
           <div class="team-card-role">Chief Revenue Officer</div>
@@ -443,14 +438,14 @@ body.ab-intro-done #ab-root .p3-nav { opacity: 1; }
       <p>Advisors, advocates, and co-founders who keep P3 mission-aligned and growth-ready.</p>
     </div>
     <div class="team-grid">
-      <div class="team-card"><div class="team-card-photo"><img src="${BOARD_BASE}Joe_Board.avif" alt="Dr. Joseph Semien"></div><div class="team-card-info"><div class="team-card-name">Dr. Joseph Semien</div><div class="team-card-role">Co-Founder</div><div class="team-card-bio">Board Certified OB/GYN. Youth advocate, fatherhood speaker, and health equity leader in Louisiana.</div></div></div>
-      <div class="team-card"><div class="team-card-photo"><img src="${BOARD_BASE}Pierre_Board.avif" alt="Dr. Pierre Johnson"></div><div class="team-card-info"><div class="team-card-name">Dr. Pierre Johnson</div><div class="team-card-role">Co-Founder</div><div class="team-card-bio">Board Certified OB/GYN. Community health volunteer, mentor pipeline builder, and Chicago civic leader.</div></div></div>
-      <div class="team-card"><div class="team-card-photo"><img src="${BOARD_BASE}George_Board.png" alt="George Christo-Baker"></div><div class="team-card-info"><div class="team-card-name">George Christo-Baker</div><div class="team-card-role">Board Member</div><div class="team-card-bio">Financial Advisor at Wells Fargo. Chicago youth development advocate dedicated to expanding P3's commercial impact.</div></div></div>
-      <div class="team-card"><div class="team-card-photo"><img src="${BOARD_BASE}Vondale_Board.avif" alt="Vondale Singleton"></div><div class="team-card-info"><div class="team-card-name">Vondale Singleton</div><div class="team-card-role">Board Member</div><div class="team-card-bio">Founder of CHAMPS Male Mentoring. CEO, Brilliance &amp; Excellence NFP. MBK Chicago backbone leader.</div></div></div>
-      <div class="team-card"><div class="team-card-photo"><img src="${BOARD_BASE}Kristen%20V.%20Carter%20Headshot.jpg" alt="Kristen Carter"></div><div class="team-card-info"><div class="team-card-name">Kristen Carter</div><div class="team-card-role">Board Member</div><div class="team-card-bio">Award-winning TV executive producer. Founder of Trust Your Magic. Hofstra University.</div></div></div>
-      <div class="team-card"><div class="team-card-photo"><img src="${BOARD_BASE}ORELIA.jpg" alt="Orelia Lawdins-Trent"></div><div class="team-card-info"><div class="team-card-name">Orelia Lawdins-Trent</div><div class="team-card-role">Legal Liaison</div><div class="team-card-bio">Litigation Attorney, Lawdins Law &amp; Associates. Ensures P3 operates with legal integrity and compliance.</div></div></div>
-      <div class="team-card"><div class="team-card-photo"><img src="${BOARD_BASE}ANDREA%20MADHERE%20HEADSHOT.JPG" alt="Dr. Andrea Madhere"></div><div class="team-card-info"><div class="team-card-name">Dr. Andrea Madhere</div><div class="team-card-role">Secretary</div><div class="team-card-bio">Owner, Chiropractic Concierge. Foundation Chair, Jack and Jill of America, Baton Rouge chapter.</div></div></div>
-      <div class="team-card"><div class="team-card-photo"><img src="${BOARD_BASE}Stan_Board.avif" alt="Stanley Savage"></div><div class="team-card-info"><div class="team-card-name">Stanley Savage</div><div class="team-card-role">Treasurer</div><div class="team-card-bio">Manager of Financial Audit at Blue Cross Blue Shield. VP Finance, 100 Black Men of Metro Baton Rouge.</div></div></div>
+      <div class="team-card"><div class="team-card-photo"><img src="${ASSETS}joe_board.avif" alt="Dr. Joseph Semien"></div><div class="team-card-info"><div class="team-card-name">Dr. Joseph Semien</div><div class="team-card-role">Co-Founder</div><div class="team-card-bio">Board Certified OB/GYN. Youth advocate, fatherhood speaker, and health equity leader in Louisiana.</div></div></div>
+      <div class="team-card"><div class="team-card-photo"><img src="${ASSETS}pierre_board.avif" alt="Dr. Pierre Johnson"></div><div class="team-card-info"><div class="team-card-name">Dr. Pierre Johnson</div><div class="team-card-role">Co-Founder</div><div class="team-card-bio">Board Certified OB/GYN. Community health volunteer, mentor pipeline builder, and Chicago civic leader.</div></div></div>
+      <div class="team-card"><div class="team-card-photo"><img src="${ASSETS}george_board.png" alt="George Christo-Baker"></div><div class="team-card-info"><div class="team-card-name">George Christo-Baker</div><div class="team-card-role">Board Member</div><div class="team-card-bio">Financial Advisor at Wells Fargo. Chicago youth development advocate dedicated to expanding P3's commercial impact.</div></div></div>
+      <div class="team-card"><div class="team-card-photo"><img src="${ASSETS}vondale_board.avif" alt="Vondale Singleton"></div><div class="team-card-info"><div class="team-card-name">Vondale Singleton</div><div class="team-card-role">Board Member</div><div class="team-card-bio">Founder of CHAMPS Male Mentoring. CEO, Brilliance &amp; Excellence NFP. MBK Chicago backbone leader.</div></div></div>
+      <div class="team-card"><div class="team-card-photo"><img src="${ASSETS}kristen-v-carter-headshot.jpg" alt="Kristen Carter"></div><div class="team-card-info"><div class="team-card-name">Kristen Carter</div><div class="team-card-role">Board Member</div><div class="team-card-bio">Award-winning TV executive producer. Founder of Trust Your Magic. Hofstra University.</div></div></div>
+      <div class="team-card"><div class="team-card-photo"><img src="${ASSETS}orelia.jpg" alt="Orelia Lawdins-Trent"></div><div class="team-card-info"><div class="team-card-name">Orelia Lawdins-Trent</div><div class="team-card-role">Legal Liaison</div><div class="team-card-bio">Litigation Attorney, Lawdins Law &amp; Associates. Ensures P3 operates with legal integrity and compliance.</div></div></div>
+      <div class="team-card"><div class="team-card-photo"><img src="${ASSETS}andrea-madhere-headshot.jpg" alt="Dr. Andrea Madhere"></div><div class="team-card-info"><div class="team-card-name">Dr. Andrea Madhere</div><div class="team-card-role">Secretary</div><div class="team-card-bio">Owner, Chiropractic Concierge. Foundation Chair, Jack and Jill of America, Baton Rouge chapter.</div></div></div>
+      <div class="team-card"><div class="team-card-photo"><img src="${ASSETS}stan_board.avif" alt="Stanley Savage"></div><div class="team-card-info"><div class="team-card-name">Stanley Savage</div><div class="team-card-role">Treasurer</div><div class="team-card-bio">Manager of Financial Audit at Blue Cross Blue Shield. VP Finance, 100 Black Men of Metro Baton Rouge.</div></div></div>
     </div>
   </div>
 </section>
@@ -467,8 +462,8 @@ body.ab-intro-done #ab-root .p3-nav { opacity: 1; }
     <div class="press-big-grid">
       <a class="press-card-big" href="https://youtu.be/JxD4yL8hCvA?si=FbDKZMGYGtPjKQM6" target="_blank" rel="noopener">
         <div class="press-card-big-visual orange-bg">
-          <div class="press-thumb-bg" style="background-image: url('${IMG_BASE}The%20Today%20Show%20thumb.webp');"></div>
-          <img src="${MEDIA_BASE}Today%20Show.png" alt="TODAY Show">
+          <div class="press-thumb-bg" style="background-image: url('${ASSETS}the-today-show-thumb.webp');"></div>
+          <img src="${ASSETS}today-show.png" alt="TODAY Show">
         </div>
         <div class="press-card-big-body">
           <div class="press-type">TV Feature</div>
@@ -478,8 +473,8 @@ body.ab-intro-done #ab-root .p3-nav { opacity: 1; }
       </a>
       <a class="press-card-big" href="https://vote.webbyawards.com/PublicVoting#/2026/advertising-media-pr/branded-content/belonging-inclusion" target="_blank" rel="noopener">
         <div class="press-card-big-visual blue-bg">
-          <div class="press-thumb-bg" style="background-image: url('${IMG_BASE}300x250-02.png');"></div>
-          <img src="${WEBBY_SVG}" alt="The Webby Awards">
+          <div class="press-thumb-bg" style="background-image: url('${ASSETS}300x250-02.png');"></div>
+          <img src="${ASSETS}webby-logo-transparent.svg" alt="The Webby Awards">
         </div>
         <div class="press-card-big-body">
           <div class="press-type">Nomination</div>
@@ -489,8 +484,8 @@ body.ab-intro-done #ab-root .p3-nav { opacity: 1; }
       </a>
       <a class="press-card-big" href="https://www.nytimes.com/2019/03/07/science/black-doctors-book-pulse-perseverance.html" target="_blank" rel="noopener">
         <div class="press-card-big-visual gray-bg">
-          <div class="press-thumb-bg" style="background-image: url('${IMG_BASE}NYC%20thumb.webp');"></div>
-          <img src="${MEDIA_BASE}New%20York%20Times.png" alt="The New York Times">
+          <div class="press-thumb-bg" style="background-image: url('${ASSETS}nyc-thumb.webp');"></div>
+          <img src="${ASSETS}new-york-times.png" alt="The New York Times">
         </div>
         <div class="press-card-big-body">
           <div class="press-type">Feature Article</div>
@@ -500,11 +495,11 @@ body.ab-intro-done #ab-root .p3-nav { opacity: 1; }
       </a>
       <a class="press-card-big" href="https://www.adweek.com/brand-marketing/why-kevin-bacons-sixdegreesorg-is-matching-nonprofits-with-agencies/" target="_blank" rel="noopener">
         <div class="press-card-big-visual maroon-bg">
-          <div class="press-thumb-bg" style="background-image: url('${ROOT_IMG_BASE}AdWeek%20group.jpeg');"></div>
+          <div class="press-thumb-bg" style="background-image: url('${ASSETS}adweek-group.jpeg');"></div>
           <div class="press-logos-row">
-            <img src="${MEDIA_BASE}Versus.png" alt="VERSUS" style="filter: none; max-height: 50px;">
+            <img src="${ASSETS}versus.png" alt="VERSUS" style="filter: none; max-height: 50px;">
             <span style="color: rgba(255,255,255,0.5); font-size: 20px; position: relative; z-index: 2;">+</span>
-            <img src="${MEDIA_BASE}AdWeek%20NYC.png" alt="Advertising Week NYC">
+            <img src="${ASSETS}adweek-nyc.png" alt="Advertising Week NYC">
           </div>
         </div>
         <div class="press-card-big-body">
@@ -517,11 +512,11 @@ body.ab-intro-done #ab-root .p3-nav { opacity: 1; }
 
     <div class="press-small-grid">
       <a class="press-card-small" href="https://abcnews.com/video/61046557/" target="_blank" rel="noopener">
-        <div class="press-card-small-logo"><img src="${MEDIA_BASE}ABC%20News.png" alt="ABC News"></div>
+        <div class="press-card-small-logo"><img src="${ASSETS}abc-news.png" alt="ABC News"></div>
         <div class="press-type">TV Feature</div><h4>Doctors Share Their Pulse of Perseverance</h4>
       </a>
       <a class="press-card-small" href="https://www.adweek.com/brand-marketing/why-kevin-bacons-sixdegreesorg-is-matching-nonprofits-with-agencies/" target="_blank" rel="noopener">
-        <div class="press-card-small-logo"><img src="${MEDIA_BASE}AdWeek%20NYC.png" alt="Advertising Week NYC"></div>
+        <div class="press-card-small-logo"><img src="${ASSETS}adweek-nyc.png" alt="Advertising Week NYC"></div>
         <div class="press-type">Campaign</div><h4>P3 at Advertising Week New York</h4>
       </a>
       <a class="press-card-small" href="https://youtu.be/hNIf9UQSYjg?si=ti_K1qAkP_iw7rXd" target="_blank" rel="noopener">
@@ -529,7 +524,7 @@ body.ab-intro-done #ab-root .p3-nav { opacity: 1; }
         <div class="press-type">TV Appearance</div><h4>P3 Founders on Steve Harvey</h4>
       </a>
       <a class="press-card-small" href="https://advertisingweek.com/advertising-weeks-six-degrees/" target="_blank" rel="noopener">
-        <div class="press-card-small-logo"><img src="${MEDIA_BASE}SixDegrees.png" alt="SixDegrees.org"></div>
+        <div class="press-card-small-logo"><img src="${ASSETS}sixdegrees.png" alt="SixDegrees.org"></div>
         <div class="press-type">Partnership</div><h4>Kevin Bacon's SixDegrees.org Partner</h4>
       </a>
       <a class="press-card-small" href="https://www.goodmorningamerica.com/amp/video/61046557" target="_blank" rel="noopener">
@@ -564,53 +559,53 @@ body.ab-intro-done #ab-root .p3-nav { opacity: 1; }
     <div class="partner-category">
       <h4>Academic Partners</h4>
       <div class="partner-logos">
-        <img src="${PARTNER_BASE}Chicago%20Public%20Schools.png" alt="Chicago Public Schools">
-        <img src="${PARTNER_BASE}Chicago%20State%20University.png" alt="Chicago State University">
-        <img src="${PARTNER_BASE}Langston%20University.png" alt="Langston University">
-        <img src="${PARTNER_BASE}Xavier%20University.png" alt="Xavier University of Louisiana">
-        <img src="${PARTNER_BASE}NYU.png" alt="NYU">
-        <img src="${PARTNER_BASE}Leo%20High%20School.png" alt="LEO Catholic High School">
-        <img src="${PARTNER_BASE}Olive%20Harvey.png" alt="Olive-Harvey College" style="height: 36px;">
+        <img src="${ASSETS}chicago-public-schools.png" alt="Chicago Public Schools">
+        <img src="${ASSETS}chicago-state-university.png" alt="Chicago State University">
+        <img src="${ASSETS}langston-university.png" alt="Langston University">
+        <img src="${ASSETS}xavier-university.png" alt="Xavier University of Louisiana">
+        <img src="${ASSETS}nyu.png" alt="NYU">
+        <img src="${ASSETS}leo-high-school.png" alt="LEO Catholic High School">
+        <img src="${ASSETS}olive-harvey.png" alt="Olive-Harvey College" style="height: 36px;">
       </div>
     </div>
 
     <div class="partner-category">
       <h4>Community &amp; Foundation Partners</h4>
       <div class="partner-logos">
-        <img src="${PARTNER_BASE}MBK%20Chicago.png" alt="MBK Chicago">
-        <img src="${PARTNER_BASE}Champs%20Mentoring.png" alt="CHAMPS Male Mentoring">
-        <img src="${PARTNER_BASE}100%20Black%20Men.png" alt="100 Black Men">
-        <img src="${PARTNER_BASE}BUILD%20Chicago.png" alt="BUILD Chicago">
-        <img src="${PARTNER_BASE}Project%20H.O.O.D.png" alt="Project H.O.O.D.">
-        <img src="${PARTNER_BASE}Salute%201st.png" alt="Salute 1st">
-        <img src="${PARTNER_BASE}Gilead%20Foundation.png" alt="Gilead Foundation">
+        <img src="${ASSETS}mbk-chicago.png" alt="MBK Chicago">
+        <img src="${ASSETS}champs-mentoring.png" alt="CHAMPS Male Mentoring">
+        <img src="${ASSETS}100-black-men.png" alt="100 Black Men">
+        <img src="${ASSETS}build-chicago.png" alt="BUILD Chicago">
+        <img src="${ASSETS}project-hood.png" alt="Project H.O.O.D.">
+        <img src="${ASSETS}salute-1st.png" alt="Salute 1st">
+        <img src="${ASSETS}gilead-foundation.png" alt="Gilead Foundation">
       </div>
     </div>
 
     <div class="partner-category">
       <h4>Knowledge &amp; Industry Partners</h4>
       <div class="partner-logos">
-        <img src="${PARTNER_BASE}Google.png" alt="Google">
-        <img src="${PARTNER_BASE}Mentor.png" alt="MENTOR">
-        <img src="${PARTNER_BASE}LSU.png" alt="Louisiana State University">
-        <img src="${PARTNER_BASE}UT%20Austin.png" alt="University of Texas at Austin">
-        <img src="${PARTNER_BASE}U%20of%20Michigan.png" alt="University of Michigan">
-        <img src="${PARTNER_BASE}UNT.png" alt="University of North Texas">
-        <img src="${PARTNER_BASE}Lurie%20Hospital.png" alt="Lurie Children's Hospital" style="height: 85px;">
-        <img src="${PARTNER_BASE}Sneakers%20to%20Scrubs.png" alt="Sneakers to Scrubs">
+        <img src="${ASSETS}google.png" alt="Google">
+        <img src="${ASSETS}mentor.png" alt="MENTOR">
+        <img src="${ASSETS}lsu.png" alt="Louisiana State University">
+        <img src="${ASSETS}ut-austin.png" alt="University of Texas at Austin">
+        <img src="${ASSETS}u-of-michigan.png" alt="University of Michigan">
+        <img src="${ASSETS}unt.png" alt="University of North Texas">
+        <img src="${ASSETS}lurie-hospital.png" alt="Lurie Children's Hospital" style="height: 85px;">
+        <img src="${ASSETS}sneakers-to-scrubs.png" alt="Sneakers to Scrubs">
       </div>
     </div>
 
     <div class="partner-category">
       <h4>Media &amp; Recognition</h4>
       <div class="partner-logos media-logos">
-        <img src="${MEDIA_BASE}Versus.png" alt="VERSUS">
-        <img src="${MEDIA_BASE}ABC%20News.png" alt="ABC News">
-        <img src="${MEDIA_BASE}New%20York%20Times.png" alt="The New York Times" style="height: 72px;">
-        <img src="${MEDIA_BASE}Today%20Show.png" alt="TODAY Show">
-        <img src="${MEDIA_BASE}SixDegrees.png" alt="SixDegrees.org">
-        <img src="${MEDIA_BASE}AdWeek%20NYC.png" alt="Advertising Week NYC">
-        <img src="${MEDIA_BASE}3Advance.png" alt="3Advance">
+        <img src="${ASSETS}versus.png" alt="VERSUS">
+        <img src="${ASSETS}abc-news.png" alt="ABC News">
+        <img src="${ASSETS}new-york-times.png" alt="The New York Times" style="height: 72px;">
+        <img src="${ASSETS}today-show.png" alt="TODAY Show">
+        <img src="${ASSETS}sixdegrees.png" alt="SixDegrees.org">
+        <img src="${ASSETS}adweek-nyc.png" alt="Advertising Week NYC">
+        <img src="${ASSETS}3advance.png" alt="3Advance">
       </div>
     </div>
   </div>

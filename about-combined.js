@@ -1,11 +1,14 @@
 (function() {
   /* ══════════════════════════════════════════════════════════════
-     about-combined.js v1.0.5 — About page (body content only).
-     Webflow's native V2 Nav Light + Footer V2 are preserved so this page
-     inherits sitewide nav/footer styling automatically. We only inject the
-     hero/founders/traction/leadership/board/press/partners/CTA between them.
+     about-combined.js v1.0.6 — About page rebuild.
+     Strategy: hide the page's legacy Webflow body content entirely, then
+     inject the SAME #p3nav and .p3-footer HTML the homepage uses. Webflow's
+     site-wide stylesheet already compiles .p3-nav and .p3-footer rules, so
+     these elements render identically to the homepage with zero custom CSS.
+     The companion script `p3hpshared` (hp-shared-sections.js) runs alongside
+     to add the hamburger + scroll-darken behavior, just like on the homepage.
      Source HTML: tparis7/About-Page-Redesign/About/About/index.html
-     Image assets resolve to: https://tparis7.github.io/About-Page-Redesign/About-Page-Assets/
+     Image assets: https://tparis7.github.io/About-Page-Redesign/About-Page-Assets/
      ══════════════════════════════════════════════════════════════ */
 
   // Guard against double execution (site-level + page-level script loading)
@@ -26,9 +29,10 @@
   setTimeout(cancelBodyAnimations, 1500);
 
   // ═══ 1. ASSET BASE (GitHub Pages CDN) ═══
-  var GH = 'https://tparis7.githubusercontent.com'; // not used directly
   var ASSETS = 'https://tparis7.github.io/About-Page-Redesign/About-Page-Assets/';
-  // Webflow-hosted brand assets (re-used across all P3 pages)
+  // Webflow-hosted brand assets (re-used across all P3 pages, exact same files as homepage)
+  var WF_NAV_LOGO = 'https://cdn.prod.website-files.com/69b02f65f0068e9fb16f09f7/69b02f65f0068e9fb16f0df1_P3%20Logo.svg';
+  var WF_FOOTER_LOGO = 'https://cdn.prod.website-files.com/69b02f65f0068e9fb16f09f7/69b04a49d86c8d9ea145304a_p3-logo-horizontal.png';
 
   // ═══ 2. INJECT GLOBAL FONTS ═══
   if (!document.querySelector('link[data-ab-fonts]')) {
@@ -240,31 +244,13 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
   // ═══ 4. BUILD BODY HTML ═══
   document.body.classList.add('ab-active');
 
-  // Locate Webflow's native nav (V2 Nav Light) and footer (Footer V2) so we can preserve them
-  // and hide ONLY the legacy About content sitting between them.
-  var nativeNav    = document.querySelector('.w-nav');
-  var nativeFooter = document.querySelector('[class*="footer" i]:not(.w-nav *)');
-  // Walk up to find the common ancestor where both nav + footer are siblings (Webflow may wrap
-  // everything in a `.page-wrapper` or place nav/sections/footer as direct body children).
-  var navAnc = nativeNav, footAnc = nativeFooter;
-  if (navAnc && footAnc) {
-    while (navAnc && footAnc && navAnc.parentNode !== footAnc.parentNode) {
-      // raise the lower one to match
-      if (navAnc.parentNode === document.body && footAnc.parentNode !== document.body) {
-        footAnc = footAnc.parentNode;
-      } else {
-        navAnc = navAnc.parentNode;
-      }
+  // Hide ALL existing Webflow body content (including the page's legacy `header-wrapper` nav and
+  // any old footer). We re-inject our own #p3nav and .p3-footer below — same HTML the homepage uses.
+  Array.prototype.forEach.call(document.body.children, function(child) {
+    if (child.id !== 'ab-root') {
+      child.style.setProperty('display', 'none', 'important');
     }
-  }
-  // Hide every sibling between nav and footer
-  if (navAnc && footAnc && navAnc.parentNode === footAnc.parentNode) {
-    var n = navAnc.nextElementSibling;
-    while (n && n !== footAnc) {
-      n.style.setProperty('display', 'none', 'important');
-      n = n.nextElementSibling;
-    }
-  }
+  });
 
   var root = document.createElement('div');
   root.id = 'ab-root';
@@ -569,12 +555,69 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
 
 `;
 
-  // Insert #ab-root BEFORE the native footer (or its ancestor sibling) so layout reads: nav → ab-root content → footer.
-  if (footAnc && footAnc.parentNode) {
-    footAnc.parentNode.insertBefore(root, footAnc);
-  } else {
-    document.body.appendChild(root);
-  }
+  // Build NAV (siblings of #ab-root, NOT inside it — keeps Webflow's .p3-nav styles untouched
+  // by our #ab-root universal reset).
+  var navWrap = document.createElement('div');
+  navWrap.innerHTML = `
+<div class="p3-nav" id="p3nav">
+  <a class="p3-nav-logo w-inline-block" href="/">
+    <img src="${WF_NAV_LOGO}" alt="Pulse of Perseverance Project">
+  </a>
+  <div class="p3-nav-links">
+    <a class="pp-home-desktop-hide" href="/">Home</a>
+    <a class="p3-nav-link" href="/for-students">For Students</a>
+    <a class="p3-nav-link" href="/partner">For Institutions</a>
+    <a class="p3-nav-link" href="/for-mentors">For Mentors</a>
+    <a class="p3-nav-link" href="/about/about">About</a>
+  </div>
+  <a class="p3-nav-cta" href="/download">Get the App</a>
+</div>`;
+  var navEl = navWrap.firstElementChild;
+
+  // Build FOOTER (also a body sibling).
+  var footWrap = document.createElement('div');
+  footWrap.innerHTML = `
+<section class="p3-footer">
+  <div class="p3-footer-grid">
+    <div class="p3-footer-brand">
+      <img src="${WF_FOOTER_LOGO}" alt="Pulse of Perseverance Project" class="p3-footer-logo">
+      <p>Unlocking life-changing opportunities for young visionaries. Free on iOS &amp; Android.</p>
+      <p>Chicago, IL · Founded 2018</p>
+    </div>
+    <div class="p3-footer-col">
+      <h4>Platform</h4>
+      <a href="/for-students">For Students</a>
+      <a href="/for-mentors">For Mentors</a>
+      <a href="/partner">For Institutions</a>
+      <a href="/scholarships">Scholarships</a>
+    </div>
+    <div class="p3-footer-col">
+      <h4>About</h4>
+      <a href="/about/about">Our Story</a>
+      <a href="/about/about#team">Team</a>
+      <a href="/about/in-the-press">Press</a>
+      <a href="/donate">Donate</a>
+    </div>
+    <div class="p3-footer-col">
+      <h4>Connect</h4>
+      <a href="https://www.instagram.com/pulseofp3/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.linkedin.com/company/pulseofperseverance" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.youtube.com/@PulseofPerseveranceProject" target="_blank" rel="noopener">YouTube</a>
+      <a href="/donate">Donate</a>
+    </div>
+  </div>
+  <div class="p3-footer-bottom">
+    <span>© 2026 Pulse of Perseverance Project. All rights reserved.</span>
+    <span aria-hidden="true">·</span>
+    <a href="/app-terms-conditions">Terms &amp; Conditions</a>
+  </div>
+</section>`;
+  var footEl = footWrap.firstElementChild;
+
+  // Mount: nav → ab-root content → footer
+  document.body.appendChild(navEl);
+  document.body.appendChild(root);
+  document.body.appendChild(footEl);
 
   // ═══ 5. WIRE UP BEHAVIORS ═══
   // Intro reveal

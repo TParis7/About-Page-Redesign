@@ -25,7 +25,7 @@
 
   // ═══ 1. ASSET BASE (GitHub Pages CDN) ═══
   var GH = 'https://tparis7.githubusercontent.com'; // not used directly
-  var ASSETS = 'https://tparis7.github.io/About-Page-Redesign/assets/';
+  var ASSETS = 'https://tparis7.github.io/About-Page-Redesign/About-Page-Assets/';
   // Webflow-hosted brand assets (re-used across all P3 pages)
   var WF_NAV_LOGO = 'https://cdn.prod.website-files.com/69b02f65f0068e9fb16f09f7/69b02f65f0068e9fb16f0df1_P3%20Logo.svg';
   var WF_FOOTER_LOGO = 'https://cdn.prod.website-files.com/69b02f65f0068e9fb16f09f7/69b04a49d86c8d9ea145304a_p3-logo-horizontal.png';

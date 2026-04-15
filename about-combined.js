@@ -272,6 +272,26 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
   .p3-footer-brand { grid-column: 1 / -1; }
   .p3-footer-bottom { flex-wrap: wrap; justify-content: center; text-align: center; }
 }
+
+/* ─── HAMBURGER + MOBILE OVERLAY (mirror hp-shared-sections.js) ─── */
+.pp-home-desktop-hide { display: none; }
+@media(max-width: 991px) { .pp-home-desktop-hide { display: block; } }
+.pp-mob-menu { display: none; cursor: pointer; padding: 8px; z-index: 100; flex-direction: column; gap: 5px; }
+@media(max-width: 991px) {
+  .pp-mob-menu { display: flex; }
+  .p3-nav .p3-nav-links { display: none !important; }
+  .p3-nav .p3-nav-cta { display: none !important; }
+}
+.pp-mob-menu span { display: block; width: 22px; height: 2px; background-color: #fff; border-radius: 2px; transition: all .3s ease; }
+.pp-mob-menu.open span:nth-child(1) { transform: rotate(45deg) translate(4px, 6px); }
+.pp-mob-menu.open span:nth-child(2) { opacity: 0; }
+.pp-mob-menu.open span:nth-child(3) { transform: rotate(-45deg) translate(4px, -6px); }
+.pp-mob-overlay { display: none; position: fixed; inset: 0; z-index: 99; background: rgba(26,26,26,0.98); flex-direction: column; align-items: center; justify-content: center; gap: 24px; }
+.pp-mob-overlay.open { display: flex !important; }
+.pp-mob-overlay-link { color: #fff; font-size: 1.4rem; font-weight: 600; text-decoration: none; opacity: 0.8; transition: opacity .3s; font-family: "Space Grotesk", sans-serif; }
+.pp-mob-overlay-link:hover { opacity: 1; }
+.pp-mob-overlay-cta { display: inline-flex; padding: 12px 28px; border-radius: 100px; background: #D93A3A; color: #fff; font-weight: 600; font-size: 1rem; text-decoration: none; margin-top: 12px; transition: opacity .3s; }
+.pp-mob-overlay-cta:hover { opacity: 0.9; }
 `;
   document.head.appendChild(style);
 
@@ -605,6 +625,7 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
     <a class="p3-nav-link" href="/about/about">About</a>
   </div>
   <a class="p3-nav-cta" href="/download">Get the App</a>
+  <div class="pp-mob-menu" aria-label="Menu"><span></span><span></span><span></span></div>
 </div>`;
   var navEl = navWrap.firstElementChild;
 
@@ -651,6 +672,43 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
   document.body.appendChild(navEl);
   document.body.appendChild(root);
   document.body.appendChild(footEl);
+
+  // ═══ HAMBURGER OVERLAY + WIRE-UP (mirror hp-shared-sections.js) ═══
+  if (!document.getElementById('pp-mob-overlay')) {
+    var ovl = document.createElement('div');
+    ovl.id = 'pp-mob-overlay';
+    ovl.className = 'pp-mob-overlay';
+    ovl.innerHTML =
+      '<a class="pp-mob-overlay-link" href="/">Home</a>' +
+      '<a class="pp-mob-overlay-link" href="/for-students">For Students</a>' +
+      '<a class="pp-mob-overlay-link" href="/partner">For Institutions</a>' +
+      '<a class="pp-mob-overlay-link" href="/for-mentors">For Mentors</a>' +
+      '<a class="pp-mob-overlay-link" href="/about/about">About</a>' +
+      '<a class="pp-mob-overlay-cta" href="/download">Get the App</a>';
+    document.body.appendChild(ovl);
+  }
+  (function wireAboutHamburger() {
+    var mob = navEl.querySelector('.pp-mob-menu');
+    var ov = document.getElementById('pp-mob-overlay');
+    if (!mob || !ov || mob.dataset.wired) return;
+    mob.dataset.wired = '1';
+    mob.addEventListener('click', function() {
+      mob.classList.toggle('open');
+      ov.classList.toggle('open');
+      document.body.style.overflow = ov.classList.contains('open') ? 'hidden' : '';
+    });
+    ov.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        mob.classList.remove('open');
+        ov.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  })();
+  // Nav scroll-darken effect
+  window.addEventListener('scroll', function() {
+    navEl.classList.toggle('scrolled', window.scrollY > 50);
+  });
 
   // ═══ 5. WIRE UP BEHAVIORS ═══
   // Intro reveal

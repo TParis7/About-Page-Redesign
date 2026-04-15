@@ -1,6 +1,11 @@
 (function() {
   /* ══════════════════════════════════════════════════════════════
-     about-combined.js v1.0.8 — About page rebuild.
+     about-combined.js v1.0.10 — About page rebuild.
+     v1.0.10: added id="press" to Press section so /about/about#press anchors
+     to it (used by the /about/in-the-press redirect).
+     v1.0.9: hardened scrollToHash — scopes id lookup to injected #ab-root
+     (legacy Webflow DOM may contain a duplicate #team), offsets fixed nav,
+     retries after window.load for image-driven layout shifts.
      v1.0.8: (a) added .p3-nav / .p3-footer overrides (logo max-height 36px,
      mobile 2-col footer grid) mirroring hp-shared-sections.js since About page
      doesn't load that script; (b) added post-inject scrollToHash() so
@@ -403,7 +408,7 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
 </section>
 
 <!-- PRESS -->
-<section class="press reveal">
+<section id="press" class="press reveal">
   <div class="section-inner">
     <div class="section-header">
       <span class="section-tag">In the Press</span>
@@ -656,13 +661,20 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
   }
 
   // Post-inject hash scroll — browser's initial hash scroll ran before #team existed,
-  // so re-trigger after DOM is built.
+  // and a legacy Webflow element with the same id may still exist in the hidden DOM,
+  // so query inside #ab-root specifically and retry after images/layout settle.
   function scrollToHash() {
     var h = window.location.hash;
     if (!h || h.length < 2) return;
-    var el = document.getElementById(h.slice(1));
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    var id = h.slice(1);
+    var el = root.querySelector('#' + CSS.escape(id)) || document.querySelector('#ab-root #' + CSS.escape(id));
+    if (el) {
+      var y = el.getBoundingClientRect().top + window.pageYOffset - 80; // offset for fixed nav
+      window.scrollTo({ top: y, behavior: 'auto' });
+    }
   }
   setTimeout(scrollToHash, 50);
   setTimeout(scrollToHash, 400);
+  setTimeout(scrollToHash, 1200);
+  window.addEventListener('load', function(){ setTimeout(scrollToHash, 100); });
 })();

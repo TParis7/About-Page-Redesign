@@ -1,6 +1,8 @@
 (function() {
   /* ══════════════════════════════════════════════════════════════
-     about-combined.js v1.0.6 — About page rebuild.
+     about-combined.js v1.0.7 — About page rebuild.
+     v1.0.7: added id="team" to Leadership section so footer "Team" link
+     (/about/about#team) anchors to the visible Leadership Team in the redesign.
      Strategy: hide the page's legacy Webflow body content entirely, then
      inject the SAME #p3nav and .p3-footer HTML the homepage uses. Webflow's
      site-wide stylesheet already compiles .p3-nav and .p3-footer rules, so
@@ -310,7 +312,7 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
 </section>
 
 <!-- LEADERSHIP -->
-<section class="leadership reveal">
+<section id="team" class="leadership reveal">
   <div class="section-inner">
     <div class="section-header">
       <span class="section-tag">Leadership Team</span>

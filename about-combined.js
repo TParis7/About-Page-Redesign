@@ -1,6 +1,10 @@
 (function() {
   /* ══════════════════════════════════════════════════════════════
-     about-combined.js v1.0.7 — About page rebuild.
+     about-combined.js v1.0.8 — About page rebuild.
+     v1.0.8: (a) added .p3-nav / .p3-footer overrides (logo max-height 36px,
+     mobile 2-col footer grid) mirroring hp-shared-sections.js since About page
+     doesn't load that script; (b) added post-inject scrollToHash() so
+     /about/about#team scrolls to Leadership after dynamic content is built.
      v1.0.7: added id="team" to Leadership section so footer "Team" link
      (/about/about#team) anchors to the visible Leadership Team in the redesign.
      Strategy: hide the page's legacy Webflow body content entirely, then
@@ -239,6 +243,20 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
   #ab-root .press-small-grid { grid-template-columns: 1fr; }
   #ab-root .stats-grid { grid-template-columns: 1fr 1fr; }
   #ab-root .founders-photos { grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+}
+
+/* ─── NAV + FOOTER overrides (mirror hp-shared-sections.js so About page matches homepage) ─── */
+.p3-nav { padding: 16px 40px !important; height: auto !important; }
+.p3-nav .p3-nav-logo img { max-height: 36px !important; width: auto !important; height: auto !important; object-fit: contain; }
+.p3-nav .p3-nav-link { color: rgba(255,255,255,0.85) !important; }
+@media(max-width: 991px) {
+  .p3-nav { padding: 16px !important; height: 64px !important; }
+  .p3-nav .p3-nav-logo img { max-height: 36px !important; height: 36px !important; }
+}
+@media(max-width: 768px) {
+  .p3-footer-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 24px 16px !important; }
+  .p3-footer-brand { grid-column: 1 / -1; }
+  .p3-footer-bottom { flex-wrap: wrap; justify-content: center; text-align: center; }
 }
 `;
   document.head.appendChild(style);
@@ -636,4 +654,15 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
   } else {
     root.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('visible'); });
   }
+
+  // Post-inject hash scroll — browser's initial hash scroll ran before #team existed,
+  // so re-trigger after DOM is built.
+  function scrollToHash() {
+    var h = window.location.hash;
+    if (!h || h.length < 2) return;
+    var el = document.getElementById(h.slice(1));
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  setTimeout(scrollToHash, 50);
+  setTimeout(scrollToHash, 400);
 })();

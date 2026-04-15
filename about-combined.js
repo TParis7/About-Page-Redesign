@@ -1,6 +1,15 @@
 (function() {
   /* ══════════════════════════════════════════════════════════════
-     about-combined.js v1.0.10 — About page rebuild.
+     about-combined.js v1.0.12 — About page rebuild.
+     v1.0.12: mirror homepage footer exactly — About column order is now
+     Our Story / Team / Annual Report / Press (Annual Report BEFORE Press).
+     Bottom row rewritten as flex container with flex-wrap + centered +
+     24px gap + 1px top divider, so desktop shows © and T&C inline with gap,
+     and mobile wraps them to centered rows (matches homepage Footer V2).
+     v1.0.11: footer cleanup — removed duplicate Donate (kept in Connect),
+     added "Annual Report" link (GDrive PDF) to About column, rewrote bottom
+     row to match homepage p3footerfix pattern. Replaced "Partner With Us"
+     CTA button with "Annual Report 2025" pointing to same GDrive PDF.
      v1.0.10: added id="press" to Press section so /about/about#press anchors
      to it (used by the /about/in-the-press redirect).
      v1.0.9: hardened scrollToHash — scopes id lookup to injected #ab-root
@@ -574,7 +583,7 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
   <p>Whether you're a student seeking mentorship, a professional ready to give back, or an institution looking to drive outcomes — there's a place for you at P3.</p>
   <div class="cta-buttons">
     <a href="https://www.pulseofp3.org/download" class="cta-btn-primary">Get the App →</a>
-    <a href="https://www.pulseofp3.org/partner" class="cta-btn-outline">Partner With Us</a>
+    <a href="https://drive.google.com/file/d/1IrFocCsboO6mLZsG3GAlHjmKv_V7a9Sn/view?usp=drive_link" target="_blank" rel="noopener" class="cta-btn-outline">Annual Report 2025</a>
   </div>
 </section>
 
@@ -620,8 +629,8 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
       <h4>About</h4>
       <a href="/about/about">Our Story</a>
       <a href="/about/about#team">Team</a>
+      <a href="https://drive.google.com/file/d/1IrFocCsboO6mLZsG3GAlHjmKv_V7a9Sn/view?usp=drive_link" target="_blank" rel="noopener">Annual Report</a>
       <a href="/about/in-the-press">Press</a>
-      <a href="/donate">Donate</a>
     </div>
     <div class="p3-footer-col">
       <h4>Connect</h4>
@@ -631,10 +640,9 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
       <a href="/donate">Donate</a>
     </div>
   </div>
-  <div class="p3-footer-bottom">
+  <div class="p3-footer-bottom" style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:24px;margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);">
     <span>© 2026 Pulse of Perseverance Project. All rights reserved.</span>
-    <span aria-hidden="true">·</span>
-    <a href="/app-terms-conditions">Terms &amp; Conditions</a>
+    <a href="/app-terms-conditions" style="text-decoration:underline;color:inherit;">Terms &amp; Conditions</a>
   </div>
 </section>`;
   var footEl = footWrap.firstElementChild;

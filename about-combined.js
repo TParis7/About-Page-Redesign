@@ -1,15 +1,12 @@
 (function() {
   /* ══════════════════════════════════════════════════════════════
-     about-combined.js v1.0.13 — About page rebuild.
+     about-combined.js v1.0.14 — About page rebuild.
+     v1.0.14 (Apr 17, 2026): added cache-buster `?v=20260417b` to the
+     Orelia Lawdins-Trent team-card image so browsers + GitHub Pages CDN
+     fetch the newly uploaded headshot instead of the cached prior file.
      v1.0.13 (Apr 17, 2026): (a) in "Knowledge & Industry Partners" row,
      replaced Sneakers to Scrubs logo with 3Advance logo; (b) removed
-     duplicate 3Advance logo from "Media & Recognition" row. The Orelia
-     Lawdins-Trent team-card still references `${ASSETS}orelia.jpg` — to
-     swap the photo, upload the new image file to the
-     tparis7/About-Page-Redesign repo at About-Page-Assets/orelia.jpg
-     (overwriting the existing file). No JS change is required for the
-     photo swap — the GitHub Pages CDN will serve the new image once
-     the file is committed.
+     duplicate 3Advance logo from "Media & Recognition" row.
      v1.0.12: mirror homepage footer exactly — About column order is now
      Our Story / Team / Annual Report / Press (Annual Report BEFORE Press).
      Bottom row rewritten as flex container with flex-wrap + centered +
@@ -438,7 +435,7 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
       <div class="team-card"><div class="team-card-photo"><img src="${ASSETS}george_board.png" alt="George Christo-Baker"></div><div class="team-card-info"><div class="team-card-name">George Christo-Baker</div><div class="team-card-role">Board Member</div><div class="team-card-bio">Financial Advisor at Wells Fargo. Chicago youth development advocate dedicated to expanding P3's commercial impact.</div></div></div>
       <div class="team-card"><div class="team-card-photo"><img src="${ASSETS}vondale_board.avif" alt="Vondale Singleton"></div><div class="team-card-info"><div class="team-card-name">Vondale Singleton</div><div class="team-card-role">Board Member</div><div class="team-card-bio">Founder of CHAMPS Male Mentoring. CEO, Brilliance &amp; Excellence NFP. MBK Chicago backbone leader.</div></div></div>
       <div class="team-card"><div class="team-card-photo"><img src="${ASSETS}kristen-v-carter-headshot.jpg" alt="Kristen Carter"></div><div class="team-card-info"><div class="team-card-name">Kristen Carter</div><div class="team-card-role">Board Member</div><div class="team-card-bio">Award-winning TV executive producer. Founder of Trust Your Magic. Hofstra University.</div></div></div>
-      <div class="team-card"><div class="team-card-photo"><img src="${ASSETS}orelia.jpg" alt="Orelia Lawdins-Trent"></div><div class="team-card-info"><div class="team-card-name">Orelia Lawdins-Trent</div><div class="team-card-role">Legal Liaison</div><div class="team-card-bio">Litigation Attorney, Lawdins Law &amp; Associates. Ensures P3 operates with legal integrity and compliance.</div></div></div>
+      <div class="team-card"><div class="team-card-photo"><img src="${ASSETS}orelia.jpg?v=20260417b" alt="Orelia Lawdins-Trent"></div><div class="team-card-info"><div class="team-card-name">Orelia Lawdins-Trent</div><div class="team-card-role">Legal Liaison</div><div class="team-card-bio">Litigation Attorney, Lawdins Law &amp; Associates. Ensures P3 operates with legal integrity and compliance.</div></div></div>
       <div class="team-card"><div class="team-card-photo"><img src="${ASSETS}andrea-madhere-headshot.jpg" alt="Dr. Andrea Madhere"></div><div class="team-card-info"><div class="team-card-name">Dr. Andrea Madhere</div><div class="team-card-role">Secretary</div><div class="team-card-bio">Owner, Chiropractic Concierge. Foundation Chair, Jack and Jill of America, Baton Rouge chapter.</div></div></div>
       <div class="team-card"><div class="team-card-photo"><img src="${ASSETS}stan_board.avif" alt="Stanley Savage"></div><div class="team-card-info"><div class="team-card-name">Stanley Savage</div><div class="team-card-role">Treasurer</div><div class="team-card-bio">Manager of Financial Audit at Blue Cross Blue Shield. VP Finance, 100 Black Men of Metro Baton Rouge.</div></div></div>
     </div>

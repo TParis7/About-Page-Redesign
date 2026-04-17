@@ -1,6 +1,15 @@
 (function() {
   /* ══════════════════════════════════════════════════════════════
-     about-combined.js v1.0.12 — About page rebuild.
+     about-combined.js v1.0.13 — About page rebuild.
+     v1.0.13 (Apr 17, 2026): (a) in "Knowledge & Industry Partners" row,
+     replaced Sneakers to Scrubs logo with 3Advance logo; (b) removed
+     duplicate 3Advance logo from "Media & Recognition" row. The Orelia
+     Lawdins-Trent team-card still references `${ASSETS}orelia.jpg` — to
+     swap the photo, upload the new image file to the
+     tparis7/About-Page-Redesign repo at About-Page-Assets/orelia.jpg
+     (overwriting the existing file). No JS change is required for the
+     photo swap — the GitHub Pages CDN will serve the new image once
+     the file is committed.
      v1.0.12: mirror homepage footer exactly — About column order is now
      Our Story / Team / Annual Report / Press (Annual Report BEFORE Press).
      Bottom row rewritten as flex container with flex-wrap + centered +
@@ -578,7 +587,7 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
         <img src="${ASSETS}u-of-michigan.png" alt="University of Michigan">
         <img src="${ASSETS}unt.png" alt="University of North Texas">
         <img src="${ASSETS}lurie-hospital.png" alt="Lurie Children's Hospital" style="height: 85px;">
-        <img src="${ASSETS}sneakers-to-scrubs.png" alt="Sneakers to Scrubs">
+        <img src="${ASSETS}3advance.png" alt="3Advance">
       </div>
     </div>
 
@@ -591,7 +600,6 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
         <img src="${ASSETS}today-show.png" alt="TODAY Show">
         <img src="${ASSETS}sixdegrees.png" alt="SixDegrees.org">
         <img src="${ASSETS}adweek-nyc.png" alt="Advertising Week NYC">
-        <img src="${ASSETS}3advance.png" alt="3Advance">
       </div>
     </div>
   </div>

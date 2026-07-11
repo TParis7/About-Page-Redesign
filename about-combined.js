@@ -266,7 +266,9 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
 }
 
 /* ─── NAV + FOOTER overrides (mirror hp-shared-sections.js so About page matches homepage) ─── */
-.p3-nav { padding: 16px 40px !important; height: auto !important; }
+.p3-nav { padding: 16px 40px !important; height: auto !important; transition: background 0.3s, box-shadow 0.3s, backdrop-filter 0.3s; }
+/* Scroll-darkened nav — pixel-match of the FS/homepage rule (the JS toggle existed but this rule was missing) */
+.p3-nav.scrolled { background: rgba(26, 26, 26, 0.95) !important; backdrop-filter: blur(20px) !important; box-shadow: 0 2px 20px rgba(0,0,0,0.15); }
 .p3-nav .p3-nav-logo img { max-height: 36px !important; width: auto !important; height: auto !important; object-fit: contain; }
 .p3-nav .p3-nav-link { color: rgba(255,255,255,0.85) !important; }
 @media(max-width: 991px) {
@@ -361,7 +363,7 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
       <p>Real impact, measured in the outcomes that matter.</p>
     </div>
     <div class="stats-grid">
-      <div class="stat-item"><div class="stat-number">900<span class="accent">+</span></div><div class="stat-divider"></div><div class="stat-label">Students &amp; mentors connected on the platform</div></div>
+      <div class="stat-item"><div class="stat-number">1,000<span class="accent">+</span></div><div class="stat-divider"></div><div class="stat-label">Students &amp; mentors connected on the platform</div></div>
       <div class="stat-item"><div class="stat-number">99<span class="accent">%</span></div><div class="stat-divider"></div><div class="stat-label">Mentorship retention rate after 90 days</div></div>
       <div class="stat-item"><div class="stat-number">4.9<span class="accent">★</span></div><div class="stat-divider"></div><div class="stat-label">App Store rating from real students</div></div>
       <div class="stat-item"><div class="stat-number"><span class="accent">$</span>2M</div><div class="stat-divider"></div><div class="stat-label">Raised since inception through grants &amp; donations</div></div>

@@ -670,7 +670,7 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
   </div>
   <div class="p3-footer-bottom" style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:24px;margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);">
     <span>© 2026 Pulse of Perseverance Project. All rights reserved.</span>
-    <a href="/app-terms-conditions" style="text-decoration:underline;color:inherit;">Terms &amp; Conditions</a>
+    <a href="https://www.pulseofp3.org/app-terms-conditions" style="text-decoration:underline;color:inherit;">Terms &amp; Policies</a>
   </div>
 </section>`;
   var footEl = footWrap.firstElementChild;

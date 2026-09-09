@@ -700,7 +700,7 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
       <h4>Platform</h4>
       <a href="/for-students">For Students</a>
       <a href="/for-mentors">For Mentors</a>
-      <a href="/partner">For Institutions</a>
+      <a href="https://enterprise.pulseofp3.org/overview">For Institutions</a>
       <a href="/scholarships">Scholarships</a>
     </div>
     <div class="p3-footer-col">

@@ -366,7 +366,7 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
       <p>Real impact, measured in the outcomes that matter.</p>
     </div>
     <div class="stats-grid">
-      <div class="stat-item"><div class="stat-number">1,000<span class="accent">+</span></div><div class="stat-divider"></div><div class="stat-label">Students &amp; mentors connected on the platform</div></div>
+      <div class="stat-item"><div class="stat-number">1,200<span class="accent">+</span></div><div class="stat-divider"></div><div class="stat-label">Students &amp; mentors connected on the platform</div></div>
       <div class="stat-item"><div class="stat-number">99<span class="accent">%</span></div><div class="stat-divider"></div><div class="stat-label">Mentorship retention rate after 90 days</div></div>
       <div class="stat-item"><div class="stat-number">4.9<span class="accent">★</span></div><div class="stat-divider"></div><div class="stat-label">App Store rating from real students</div></div>
       <div class="stat-item"><div class="stat-number"><span class="accent">$</span>2M</div><div class="stat-divider"></div><div class="stat-label">Raised since inception through grants &amp; donations</div></div>

@@ -64,7 +64,7 @@
   if (!document.querySelector('link[data-ab-fonts]')) {
     var fonts = document.createElement('link');
     fonts.rel = 'stylesheet';
-    fonts.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap';
+    fonts.href = 'https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Plus+Jakarta+Sans:wght@400..800&display=swap';
     fonts.setAttribute('data-ab-fonts', '1');
     document.head.appendChild(fonts);
   }
@@ -84,10 +84,10 @@
 }
 body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important; overflow-x: hidden; }
 #ab-root *, #ab-root *::before, #ab-root *::after { box-sizing: border-box; margin: 0; padding: 0; }
-#ab-root { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #1a1a1a; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+#ab-root { font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #1a1a1a; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 #ab-root img { max-width: 100%; display: block; box-shadow: none; background: transparent; border: 0; border-radius: 0; }
 #ab-root a { text-decoration: none; color: inherit; }
-#ab-root h1, #ab-root h2, #ab-root h3, #ab-root h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; }
+#ab-root h1, #ab-root h2, #ab-root h3, #ab-root h4 { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; }
 #ab-root h1 { font-size: clamp(34px, 4.2vw, 52px); line-height: 1.15; }
 #ab-root h2 { font-size: clamp(28px, 3.5vw, 44px); line-height: 1.2; }
 #ab-root h3 { font-size: 22px; line-height: 1.3; }
@@ -135,7 +135,7 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
 #ab-root .traction .section-header p { color: rgba(255,255,255,0.65); }
 #ab-root .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; max-width: 1000px; margin: 0 auto; padding: 0 32px; }
 #ab-root .stat-item { text-align: center; }
-#ab-root .stat-number { font-family: 'Space Grotesk', sans-serif; font-size: clamp(36px, 5vw, 56px); font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 8px; }
+#ab-root .stat-number { font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(36px, 5vw, 56px); font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 8px; }
 #ab-root .stat-number .accent { color: var(--ab-crimson); }
 #ab-root .stat-label { font-size: 14px; color: rgba(255,255,255,0.6); font-weight: 500; line-height: 1.5; }
 #ab-root .stat-divider { width: 40px; height: 2px; background: rgba(255,255,255,0.15); margin: 10px auto 8px; border-radius: 1px; }
@@ -160,7 +160,7 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
 #ab-root .team-card-text-only .tcf-list li::before { content: '–'; position: absolute; left: 0; color: var(--ab-crimson); }
 #ab-root .team-card-text-only .tcf-list li em { font-style: normal; color: var(--ab-light-text); font-size: 12px; }
 #ab-root .team-card-info { padding: 20px 20px 24px; }
-#ab-root .team-card-name { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; color: var(--ab-dark); margin-bottom: 2px; }
+#ab-root .team-card-name { font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px; font-weight: 700; color: var(--ab-dark); margin-bottom: 2px; }
 #ab-root .team-card-role { font-size: 13px; font-weight: 600; color: var(--ab-crimson); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
 #ab-root .team-card-bio { font-size: 13.5px; color: var(--ab-light-text); line-height: 1.6; }
 
@@ -203,7 +203,7 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
 #ab-root .partners { background: #fff; padding: 48px 0 40px; }
 #ab-root .partner-category { margin-bottom: 40px; }
 #ab-root .partner-category:last-child { margin-bottom: 0; }
-#ab-root .partner-category h4 { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--ab-light-text); margin-bottom: 20px; text-align: center; }
+#ab-root .partner-category h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--ab-light-text); margin-bottom: 20px; text-align: center; }
 #ab-root .partner-logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 32px; background: transparent !important; box-shadow: none !important; border: none !important; padding: 0 !important; }
 #ab-root .partner-logos img { height: 52px; width: auto; object-fit: contain; transition: transform var(--ab-transition); background: transparent !important; box-shadow: none !important; border: none !important; border-radius: 0 !important; padding: 0 !important; margin: 0 !important; filter: none !important; }
 #ab-root .partner-logos img:hover { transform: scale(1.05); box-shadow: none !important; }
@@ -296,10 +296,13 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
 .pp-mob-menu.open span:nth-child(3) { transform: rotate(-45deg) translate(4px, -6px); }
 .pp-mob-overlay { display: none; position: fixed; inset: 0; z-index: 99; background: rgba(26,26,26,0.98); flex-direction: column; align-items: center; justify-content: center; gap: 24px; }
 .pp-mob-overlay.open { display: flex !important; }
-.pp-mob-overlay-link { color: #fff; font-size: 1.4rem; font-weight: 600; text-decoration: none; opacity: 0.8; transition: opacity .3s; font-family: "Space Grotesk", sans-serif; }
+.pp-mob-overlay-link { color: #fff; font-size: 1.4rem; font-weight: 600; text-decoration: none; opacity: 0.8; transition: opacity .3s; font-family: "Bricolage Grotesque", sans-serif; }
 .pp-mob-overlay-link:hover { opacity: 1; }
 .pp-mob-overlay-cta { display: inline-flex; padding: 12px 28px; border-radius: 100px; background: #D93A3A; color: #fff; font-weight: 600; font-size: 1rem; text-decoration: none; margin-top: 12px; transition: opacity .3s; }
 .pp-mob-overlay-cta:hover { opacity: 0.9; }
+
+/* Chrome family (Sep 2026 parity pass). Family only: the nav, overlay and footer are body-level siblings that inherit Webflow's body line-height (30.006px), the value every nav measurement depends on, so line-height is never set here. Element selectors as well as the containers, because Webflow's compiled stylesheet sets Inter directly on .p3-nav-cta, .p3-footer-col-title, .p3-footer-tagline and .pp-mob-overlay-link, and a direct rule beats inheritance. */
+.p3-nav, .pp-mob-overlay, .p3-footer, .p3-nav .p3-nav-links a, .p3-nav .p3-nav-link, .p3-nav .p3-nav-cta, .pp-mob-overlay a, .pp-mob-overlay .pp-mob-overlay-link, .pp-mob-overlay .pp-mob-overlay-cta, .p3-footer h4, .p3-footer p, .p3-footer a, .p3-footer .p3-footer-col-title, .p3-footer .p3-footer-tagline, .p3-footer .p3-footer-location, .p3-footer .p3-footer-link { font-family: 'Plus Jakarta Sans', sans-serif; }
 `;
   document.head.appendChild(style);
 
@@ -514,7 +517,7 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
         <div class="press-type">Campaign</div><h4>P3 at Advertising Week New York</h4>
       </a>
       <a class="press-card-small" href="https://youtu.be/hNIf9UQSYjg?si=ti_K1qAkP_iw7rXd" target="_blank" rel="noopener">
-        <div class="press-card-small-logo"><div style="font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: var(--ab-dark);">Steve Harvey Show</div></div>
+        <div class="press-card-small-logo"><div style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 16px; font-weight: 700; color: var(--ab-dark);">Steve Harvey Show</div></div>
         <div class="press-type">TV Appearance</div><h4>P3 Founders on Steve Harvey</h4>
       </a>
       <a class="press-card-small" href="https://advertisingweek.com/advertising-weeks-six-degrees/" target="_blank" rel="noopener">
@@ -522,19 +525,19 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
         <div class="press-type">Partnership</div><h4>Kevin Bacon's SixDegrees.org Partner</h4>
       </a>
       <a class="press-card-small" href="https://www.goodmorningamerica.com/amp/video/61046557" target="_blank" rel="noopener">
-        <div class="press-card-small-logo"><div style="font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: var(--ab-dark);">Good Morning America</div></div>
+        <div class="press-card-small-logo"><div style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 15px; font-weight: 700; color: var(--ab-dark);">Good Morning America</div></div>
         <div class="press-type">TV Feature</div><h4>P3 Founders Featured on GMA</h4>
       </a>
       <a class="press-card-small" href="https://youtu.be/V7VHW17jrEM?si=Qczuy7zbzU6assg7" target="_blank" rel="noopener">
-        <div class="press-card-small-logo"><div style="font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: var(--ab-dark);">Sister Circle</div></div>
+        <div class="press-card-small-logo"><div style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 16px; font-weight: 700; color: var(--ab-dark);">Sister Circle</div></div>
         <div class="press-type">TV Appearance</div><h4>P3 Founders on Sister Circle</h4>
       </a>
       <a class="press-card-small" href="https://www.blackenterprise.com/pulse-perseverance-three-black-men-become-doctors-odds/" target="_blank" rel="noopener">
-        <div class="press-card-small-logo"><div style="font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: var(--ab-dark);">Black Enterprise</div></div>
+        <div class="press-card-small-logo"><div style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 15px; font-weight: 700; color: var(--ab-dark);">Black Enterprise</div></div>
         <div class="press-type">Feature Article</div><h4>Three Black Men Become Doctors Against the Odds</h4>
       </a>
       <a class="press-card-small" href="https://youtu.be/BXI1EHdVHX0?si=hA2Mw4NaTRNvEQPc" target="_blank" rel="noopener">
-        <div class="press-card-small-logo"><div style="font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: var(--ab-dark);">Windy City Live</div></div>
+        <div class="press-card-small-logo"><div style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 15px; font-weight: 700; color: var(--ab-dark);">Windy City Live</div></div>
         <div class="press-type">TV Appearance</div><h4>P3 Founders on Windy City Live</h4>
       </a>
     </div>

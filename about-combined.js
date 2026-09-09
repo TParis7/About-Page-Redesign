@@ -87,10 +87,10 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
 #ab-root { font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #1a1a1a; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 #ab-root img { max-width: 100%; display: block; box-shadow: none; background: transparent; border: 0; border-radius: 0; }
 #ab-root a { text-decoration: none; color: inherit; }
-#ab-root h1, #ab-root h2, #ab-root h3, #ab-root h4 { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; }
-#ab-root h1 { font-size: clamp(34px, 4.2vw, 52px); line-height: 1.15; }
-#ab-root h2 { font-size: clamp(28px, 3.5vw, 44px); line-height: 1.2; }
-#ab-root h3 { font-size: 22px; line-height: 1.3; }
+#ab-root h1, #ab-root h2, #ab-root h3, #ab-root h4 { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; }
+#ab-root h1 { font-size: clamp(34px, 4.2vw, 52px); line-height: 1.15; font-weight: 700; }
+#ab-root h2 { font-size: clamp(28px, 3.5vw, 44px); line-height: 1.2; letter-spacing: -0.01em; }
+#ab-root h3 { font-size: 22px; line-height: 1.3; letter-spacing: -0.005em; }
 #ab-root h4 { font-size: 18px; line-height: 1.4; }
 #ab-root p  { font-size: 16px; line-height: 1.7; }
 #ab-root html { scroll-behavior: smooth; }

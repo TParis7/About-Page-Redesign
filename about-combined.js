@@ -730,6 +730,37 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
   document.body.appendChild(root);
   document.body.appendChild(footEl);
 
+  /*
+    Legacy-script guard for the footer (Sep 9 2026). p3footerfix 1.4.0 is still
+    registered on this page. After we run it (a) rewrites the footer's
+    "For Institutions" link back to /partner and (b) appends its own
+    "Terms & Conditions" anchor inside the copyright line. Both are undone here,
+    on a schedule and again whenever the footer changes, so the outcome does not
+    depend on which script runs last. Delete once the legacy scripts are gone.
+  */
+  function guardFooter() {
+    var footer = document.querySelector('.p3-footer');
+    if (!footer) return;
+    footer.querySelectorAll('a').forEach(function (a) {
+      var h = a.getAttribute('href') || '';
+      /* no backslashes in these regexes: the homepage build carries this block through a template literal, which drops them */
+      if (h === '/partner' || /pulseofp3[.]org[/]partner[/]?$/.test(h)) a.setAttribute('href', 'https://enterprise.pulseofp3.org/overview');
+      if (/^Terms[ ]*&[ ]*Conditions$/i.test((a.textContent || '').trim())) {
+        var host = a.parentElement;
+        a.remove();
+        if (host && host.tagName === 'P' && !host.textContent.trim() && !host.querySelector('a')) host.remove();
+      }
+    });
+  }
+  guardFooter();
+  document.addEventListener('DOMContentLoaded', guardFooter);
+  window.addEventListener('load', guardFooter);
+  [300, 1200, 3000].forEach(function (ms) { setTimeout(guardFooter, ms); });
+  if (window.MutationObserver) {
+    var guarded = document.querySelector('.p3-footer');
+    if (guarded) new MutationObserver(guardFooter).observe(guarded, { childList: true, subtree: true, attributes: true, attributeFilter: ['href'] });
+  }
+
   // ═══ HAMBURGER OVERLAY + WIRE-UP (mirror hp-shared-sections.js) ═══
   if (!document.getElementById('pp-mob-overlay')) {
     var ovl = document.createElement('div');

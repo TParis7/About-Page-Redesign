@@ -715,7 +715,7 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
       <h4>Connect</h4>
       <a href="https://www.instagram.com/pulseofp3/" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.linkedin.com/company/pulseofperseverance" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://www.youtube.com/@PulseofPerseveranceProject" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.youtube.com/@PulseofPerseverance" target="_blank" rel="noopener">YouTube</a>
       <a href="/donate">Donate</a>
     </div>
   </div>

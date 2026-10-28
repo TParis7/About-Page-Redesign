@@ -698,7 +698,7 @@ body.ab-active { background: #fff; margin: 0; padding: 0; opacity: 1 !important;
     <div class="p3-footer-brand">
       <img src="${WF_FOOTER_LOGO}" alt="Pulse of Perseverance Project" class="p3-footer-logo">
       <p>Unlocking life-changing opportunities for young visionaries. Free on iOS &amp; Android.</p>
-      <p>Chicago, IL · Founded 2018</p>
+      <p>Chicago, IL · Founded 2018</p><a href="https://www.pulseofp3.org/about/contact" class="p3-footer-link p3-footer-contact" style="align-self:flex-start">Contact</a>
     </div>
     <div class="p3-footer-col">
       <h4>Platform</h4>

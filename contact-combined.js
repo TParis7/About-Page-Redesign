@@ -115,12 +115,11 @@ body.ct-active > *:not(#ct-root):not(#p3nav):not(#pp-mob-overlay):not(.p3-footer
 /* Webflow's compiled stylesheet uppercases labels and sets its own button and input looks on this page; state ours. */
 #ct-root label, #ct-root button, #ct-root input, #ct-root select, #ct-root textarea { text-transform: none; letter-spacing: normal; }
 
-/* Hero: the same maroon band the Terms page opens on. */
-.ct-hero { background: linear-gradient(135deg, #2e0614 0%, #4A1020 55%, #5a1226 100%); color: #fff; padding: 150px 40px 64px; position: relative; overflow: hidden; }
+/* Hero: the same maroon band the Terms page opens on, kept short (Thomas, Oct 28 2026: title, one line, and on phones the email). */
+.ct-hero { background: linear-gradient(135deg, #2e0614 0%, #4A1020 55%, #5a1226 100%); color: #fff; padding: 124px 40px 52px; position: relative; overflow: hidden; }
 .ct-hero::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 85% 20%, rgba(217,58,58,0.42), transparent 55%); pointer-events: none; }
 .ct-hero-inner { max-width: 1180px; margin: 0 auto; position: relative; z-index: 1; }
-.ct-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 14px; }
-.ct-hero h1 { font-size: clamp(2.1rem, 5vw, 3.2rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; color: #fff; }
+.ct-hero h1 { font-size: clamp(2.1rem, 5vw, 3.2rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 10px; color: #fff; }
 .ct-hero h1 .accent { color: #D93A3A; }
 .ct-hero p { font-size: 1.05rem; color: rgba(255,255,255,0.8); max-width: 58ch; text-wrap: pretty; }
 /* Phones only: the email sits in the hero, so someone arriving from the App Store's App Support link sees it without scrolling past the form. Desktop has the email card beside the form instead. */
@@ -173,15 +172,13 @@ body.ct-active > *:not(#ct-root):not(#p3nav):not(#pp-mob-overlay):not(.p3-footer
 .ct-link-arrow { grid-column: 2; grid-row: 1 / span 2; font-size: 18px; color: #D93A3A; }
 
 @media (max-width: 991px) {
-  .ct-hero { padding: 120px 24px 48px; }
+  .ct-hero { padding: 104px 24px 36px; }
   .ct-body { grid-template-columns: 1fr; gap: 24px; padding: 32px 24px 72px; }
   #ct-root .ct-hero-mail { display: inline-flex; }
   .ct-side .ct-mail { display: none; }
 }
 @media (max-width: 600px) {
-  .ct-hero { padding: 96px 20px 32px; }
-  .ct-eyebrow { margin-bottom: 10px; }
-  .ct-hero h1 { margin-bottom: 10px; }
+  .ct-hero { padding: 92px 20px 28px; }
   .ct-hero p { font-size: 1rem; }
   .ct-body { padding: 20px 16px 56px; gap: 16px; }
   .ct-card { padding: 24px 18px; border-radius: 16px; }
@@ -316,9 +313,8 @@ body.ct-active > *:not(#ct-root):not(#p3nav):not(#pp-mob-overlay):not(.p3-footer
   root.innerHTML = `
     <header class="ct-hero">
       <div class="ct-hero-inner">
-        <p class="ct-eyebrow">Contact</p>
         <h1>Get in <span class="accent">touch</span></h1>
-        <p>Questions about the app, mentoring, partnerships or press? We reply within 24 to 48 hours.</p>
+        <p>We reply within 24 to 48 hours.</p>
         <a class="ct-hero-mail" href="mailto:help@pulseofp3.org">Email help@pulseofp3.org</a>
       </div>
     </header>
@@ -388,7 +384,7 @@ body.ct-active > *:not(#ct-root):not(#p3nav):not(#pp-mob-overlay):not(.p3-footer
   /* ── 5. Footer (body-level sibling) ─────────────────────────────────── */
   var footer = document.createElement('section');
   footer.className = 'p3-footer';
-  footer.innerHTML = `<div class="p3-footer-grid"><div class="p3-footer-brand"><img src="https://cdn.prod.website-files.com/69b02f65f0068e9fb16f09f7/69b02f65f0068e9fb16f0df1_P3%20Logo.svg" loading="lazy" alt="P3 - Pulse of Perseverance" class="p3-footer-logo"><p class="p3-footer-tagline">Unlocking life-changing opportunities for young visionaries. Free on iOS &amp; Android.</p><p class="p3-footer-location">Chicago, IL &middot; Founded 2018</p></div><div class="p3-footer-col"><h4 class="p3-footer-col-title">Platform</h4><a href="https://pulseofp3.org/for-students" class="p3-footer-link">For Students</a><a href="https://enterprise.pulseofp3.org/overview" class="p3-footer-link">For Institutions</a><a href="https://pulseofp3.org/for-mentors" class="p3-footer-link">For Mentors</a><a href="https://pulseofp3.org/scholarships" class="p3-footer-link">Scholarships</a></div><div class="p3-footer-col"><h4 class="p3-footer-col-title">About</h4><a href="https://pulseofp3.org/about/about" class="p3-footer-link">Our Story</a><a href="https://pulseofp3.org/about/about#team" class="p3-footer-link">Team</a><a href="https://drive.google.com/file/d/1IrFocCsboO6mLZsG3GAlHjmKv_V7a9Sn/view?usp=drive_link" class="p3-footer-link">Annual Report</a><a href="/about/about#press" class="p3-footer-link">Press</a></div><div class="p3-footer-col"><h4 class="p3-footer-col-title">Connect</h4><a href="https://www.instagram.com/pulseofp3/" class="p3-footer-link">Instagram</a><a href="https://www.linkedin.com/company/pulseofperseverance/" class="p3-footer-link">LinkedIn</a><a href="https://www.youtube.com/@PulseofPerseverance" target="_blank" class="p3-footer-link">YouTube</a><a href="https://pulseofp3.org/donate" class="p3-footer-link">Donate</a></div></div><div class="p3-footer-bottom" style="display:flex;justify-content:center;align-items:center;gap:4px;padding-top:24px;flex-wrap:wrap;"><p style="margin:0;color:rgba(255,255,255,0.4);font-size:12px;">&copy; 2026 Pulse of Perseverance Project. All rights reserved.</p><a href="https://www.pulseofp3.org/app-terms-conditions" class="p3-footer-link" style="font-size:12px;text-decoration:underline;color:rgba(255,255,255,0.4);">Terms &amp; Policies</a></div>`;
+  footer.innerHTML = `<div class="p3-footer-grid"><div class="p3-footer-brand"><img src="https://cdn.prod.website-files.com/69b02f65f0068e9fb16f09f7/69b02f65f0068e9fb16f0df1_P3%20Logo.svg" loading="lazy" alt="P3 - Pulse of Perseverance" class="p3-footer-logo"><p class="p3-footer-tagline">Unlocking life-changing opportunities for young visionaries. Free on iOS &amp; Android.</p><p class="p3-footer-location">Chicago, IL &middot; Founded 2018</p><a href="https://www.pulseofp3.org/about/contact" class="p3-footer-link p3-footer-contact" style="align-self:flex-start">Contact</a></div><div class="p3-footer-col"><h4 class="p3-footer-col-title">Platform</h4><a href="https://pulseofp3.org/for-students" class="p3-footer-link">For Students</a><a href="https://enterprise.pulseofp3.org/overview" class="p3-footer-link">For Institutions</a><a href="https://pulseofp3.org/for-mentors" class="p3-footer-link">For Mentors</a><a href="https://pulseofp3.org/scholarships" class="p3-footer-link">Scholarships</a></div><div class="p3-footer-col"><h4 class="p3-footer-col-title">About</h4><a href="https://pulseofp3.org/about/about" class="p3-footer-link">Our Story</a><a href="https://pulseofp3.org/about/about#team" class="p3-footer-link">Team</a><a href="https://drive.google.com/file/d/1IrFocCsboO6mLZsG3GAlHjmKv_V7a9Sn/view?usp=drive_link" class="p3-footer-link">Annual Report</a><a href="/about/about#press" class="p3-footer-link">Press</a></div><div class="p3-footer-col"><h4 class="p3-footer-col-title">Connect</h4><a href="https://www.instagram.com/pulseofp3/" class="p3-footer-link">Instagram</a><a href="https://www.linkedin.com/company/pulseofperseverance/" class="p3-footer-link">LinkedIn</a><a href="https://www.youtube.com/@PulseofPerseverance" target="_blank" class="p3-footer-link">YouTube</a><a href="https://pulseofp3.org/donate" class="p3-footer-link">Donate</a></div></div><div class="p3-footer-bottom" style="display:flex;justify-content:center;align-items:center;gap:4px;padding-top:24px;flex-wrap:wrap;"><p style="margin:0;color:rgba(255,255,255,0.4);font-size:12px;">&copy; 2026 Pulse of Perseverance Project. All rights reserved.</p><a href="https://www.pulseofp3.org/app-terms-conditions" class="p3-footer-link" style="font-size:12px;text-decoration:underline;color:rgba(255,255,255,0.4);">Terms &amp; Policies</a></div>`;
   document.body.appendChild(footer);
 
   /* ── 6. Behaviour ───────────────────────────────────────────────────── */
